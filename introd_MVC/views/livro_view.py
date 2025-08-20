@@ -74,7 +74,8 @@ class LivroView:
                 tree.heading(col, text=col.capitalize())
                 tree.column(col, width=120)
             for livro in livros:
-                tree.insert("", tk.END, values=(livro.id, livro.titulo, livro.autor, livro.ano, livro.isbn))
+                tree.insert("", tk.END, values=(
+                    livro.id, livro.titulo, livro.autor, livro.ano, livro.isbn))
             tree.pack(expand=True, fill="both")
 
             win.mainloop()

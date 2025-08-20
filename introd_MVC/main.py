@@ -18,7 +18,10 @@ def main():
 """
 from views.livro_view import LivroView
 
+
 def main():
     LivroView
+
+
 if __name__ == "__main__":
     main()
