@@ -50,5 +50,9 @@ class LivroController:
             print(" Erro ao conectar ao banco de dados.")
     
     def listar_livros(self, livros):
-        self.view.mostrar_livros(livros)
-
+        #self.view.mostrar_livros(livros)
+        conn = self.db.connect()
+        livros = []
+        if conn:
+            cur = conn.cursor
+            cur.execute("SELECT id, titulo, autor, ano, isbn, FROM livros ORDER BY id;")
