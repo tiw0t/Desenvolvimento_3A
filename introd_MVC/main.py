@@ -20,7 +20,7 @@ from views.livro_view import LivroView
 
 
 def main():
-    LivroView
+    LivroView.iniciar_login_banco()
 
 
 if __name__ == "__main__":

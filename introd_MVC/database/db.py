@@ -22,7 +22,7 @@ class Database:
             conn.autocommit = True
             cur = conn.cursor()
             cur.execute(
-                "SELECT 1 FROM pg_database WHERE datname = %s", (self.dbname))
+                "SELECT 1 FROM pg_database WHERE datname = %s", (self.dbname,))
             exists = cur.fetchone()
             if not exists:
                 cur.execute(sql.SQL("CREATE DATABASE {}").format(

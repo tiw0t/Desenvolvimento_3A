@@ -39,43 +39,46 @@ class LivroView:
         login_win.title("Conectar ao Banco de Dados")
         login_win.geometry("350x300")
 
+        tk.Label(login_win, text="dbname:").pack(pady=2)
+        db_name_entry = tk.Entry(login_win)
+        db_name_entry.pack()
+
+        tk.Label(login_win, text="user:").pack(pady=2)
+        db_user_entry = tk.Entry(login_win)
+        db_user_entry.pack()
+
+        tk.Label(login_win, text="Password:").pack(pady=2)
+        db_password_entry = tk.Entry(login_win)
+        db_password_entry.pack()
+
         tk.Label(login_win, text="Host:").pack(pady=2)
         db_host_entry = tk.Entry(login_win)
         db_host_entry.pack()
 
-        tk.Label(login_win, text="Porta:").pack(pady=2)
+        tk.Label(login_win, text="Port:").pack(pady=2)
         db_port_entry = tk.Entry(login_win)
-        db_port_entry.pack
+        db_port_entry.pack()
 
-        tk.Label(login_win, text="Senha:").pack(pady=2)
-        db_password_entry = tk.Entry(login_win)
-        db_password_entry.pack
 
-        tk.Label(login_win, text="Usuário:").pack(pady=2)
-        db_user_entry = tk.Entry(login_win)
-        db_user_entry.pack()
 
-        tk.Label(login_win, text="Nome do Banco de Dados:").pack(pady=2)
-        db_name_entry = tk.Entry(login_win)
-        db_name_entry.pack
 
         tk.Button(login_win, text="Conectar", command=conectar).pack(pady=15)
         login_win.mainloop()
 
-        def _show_livros_tela(self):
-            livros = self.controller.listar_livros()
-            win = tk.Tk()
-            win.title("Livros Cadastrados")
-            win.geometry("700x400")
+    def _show_livros_tela(self):
+        livros = self.controller.listar_livros()
+        win = tk.Tk()
+        win.title("Livros Cadastrados")
+        win.geometry("700x400")
 
-            columns = ("id", "titulo", "autor", "ano", "isbn")
-            tree = ttk.Treeview(win, columns=columns, show="headings")
-            for col in columns:
-                tree.heading(col, text=col.capitalize())
-                tree.column(col, width=120)
-            for livro in livros:
-                tree.insert("", tk.END, values=(
-                    livro.id, livro.titulo, livro.autor, livro.ano, livro.isbn))
-            tree.pack(expand=True, fill="both")
+        columns = ("id", "titulo", "autor", "ano", "isbn")
+        tree = ttk.Treeview(win, columns=columns, show="headings")
+        for col in columns:
+            tree.heading(col, text=col.capitalize())
+            tree.column(col, width=120)
+        for livro in livros:
+            tree.insert("", tk.END, values=(livro.id, livro.titulo,
+                        livro.autor, livro.ano, livro.isbn))
+        tree.pack(expand=True, fill="both")
 
-            win.mainloop()
+        win.mainloop()
