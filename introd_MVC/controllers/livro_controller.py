@@ -56,3 +56,8 @@ class LivroController:
         if conn:
             cur = conn.cursor
             cur.execute("SELECT id, titulo, autor, ano, isbn, FROM livros ORDER BY id;")
+            for linha in cur.fetchall():
+                livros.append(Livro(*linha))
+            cur.close()
+            cur.close()
+        return livros
