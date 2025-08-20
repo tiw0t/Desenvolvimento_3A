@@ -1,5 +1,5 @@
 from database.db import Database
-from views.livro_view import LivroView
+from models.livro import Livro
 
 
 class LivroController:
@@ -12,7 +12,7 @@ class LivroController:
             db_config["port"]
         )
         self.criar_tabela_se_nao_existir()
-        self.view = LivroView()
+        #self.view = LivroView()
 
     def criar_tabela_se_nao_existir(self):
         conn = self.db.connect()
@@ -40,7 +40,7 @@ class LivroController:
                 # %s é um placeholder que será substituido pelos valores da tupla a seguir.
                 # O psycopg2 subistitue esse %s por valores reais de forma segura, evitando injeção de SQL  
             "INSERT INTO livros (id, titulo, autor, ano, isbn) VALUES (%s, %s, %s, %s, %s) ON CONFLICT (id) DO NOTHING;",
-                        (id, titulo, autor, ano, isbn)
+            (id, titulo, autor, ano, isbn)
             )
             conn.commit() # confirma a transação, alvando as mudanças no banco de dados
             cur.close()
