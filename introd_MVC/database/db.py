@@ -44,3 +44,4 @@ class Database:
         except Exception as e:
             print(f"Erro ao conectar ao banco de dados: {e}")
             return None
+#
