@@ -8,4 +8,4 @@ class Livro:
 
     def __str__(self):
         return f"Livro(ID: {self.id}, Título: {self.titulo}, Autor: {self.autor}, Ano: {self.ano}, ISBN: {self.isbn})"
-    #
+    
