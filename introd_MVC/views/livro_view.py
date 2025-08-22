@@ -82,3 +82,4 @@ class LivroView:
         tree.pack(expand=True, fill="both")
 
         win.mainloop()
+        # teste do commit individual
